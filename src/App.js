@@ -6,13 +6,13 @@ import OurPartnersSection from './components/OurPartnersSection';
 const AaravamLandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showNavCTA, setShowNavCTA] = useState(false);
-  const heroRef = useRef(null);
+  const heroCTARef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (heroRef.current) {
-        const heroBottom = heroRef.current.getBoundingClientRect().bottom;
-        setShowNavCTA(heroBottom < 0);
+      if (heroCTARef.current) {
+        const heroCTABottom = heroCTARef.current.getBoundingClientRect().bottom;
+        setShowNavCTA(heroCTABottom < 0);
       }
     };
 
@@ -43,9 +43,9 @@ const AaravamLandingPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 py-16 md:py-24 px-8 md:px-16 flex flex-col md:flex-row items-center">
+      <section className="pt-32 py-16 md:py-24 px-8 md:px-16 flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 mb-10 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Nurturing Independent Thinkers of Tomorrow
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -53,6 +53,7 @@ const AaravamLandingPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button 
+              ref={heroCTARef}
               onClick={() => setIsModalOpen(true)}
               className="bg-[#e16338] text-white py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base font-medium hover:bg-[#d55328] transition flex items-center justify-center"
             >
